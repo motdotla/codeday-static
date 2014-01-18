@@ -11,23 +11,20 @@
     <script type="text/javascript">
       Parse.initialize("JJcIYA2sQXFgPDxW3jZpYc52gfsDt6yq5Nbq48Rs", "xhgCwkrKYPJgYN8jPiZJpuGK8lNfPXbmOyYjHziI");
 
-
       $(document).ready(function() {
         $("#signup").submit(function(e) {
-          var user = new Parse.User();
-          var email = $("#email").val();
-          var password = $("#password").val();
+          var user      = new Parse.User();
+          var email     = $("#email").val();
+          var password  = $("#password").val();
 
           user.set("username", email);
           user.set("password", password);
           user.set("email", email);
            
-          // other fields can be set just like with Parse.Object
           user.signUp(null, {
             success: function(user) {
-              window.location = "/success.html";
-
               // Hooray! Let them use the app now.
+              window.location = "./success.html";
             },
             error: function(user, error) {
               // Show the error message somewhere and let the user try again.
